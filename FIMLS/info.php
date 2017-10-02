@@ -34,14 +34,14 @@
 
 		<h3>Получить список всех фильмов:</h3>
 		<form action="index.php" method="GET" name="getlists">
-			<input type="submit" value="Узнать">
-		</form>
-		
+			<input type="submit" name="getlists" value="Узнать">
+		</form>		
 		<?php 
-			for	($i = 0; $i <= $film->lists; $i++) {
-			echo "<h5>Title: {$film->result[$i]} </h5> ";			
-			}
+		$results = $film->getLists();
+		foreach ($results as $row) {
+			echo "<h5>Title:  {$row['title']}</h5>" ;
+		}
 		?>
-</div>
+	</div>
 </body>
 </html>
