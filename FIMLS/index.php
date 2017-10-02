@@ -18,10 +18,9 @@ require_once __DIR__ . "/lib/db.php";
 	<?php 	
 		$film = new Film();
 		$film->addFilm();
-		// $film->delFilm('test');
 		$film->getInfo(test);
 		$film->getLists();
-	
+		
 		require_once __DIR__ . "/info.php";
 	?>
 </body>
