@@ -69,7 +69,7 @@ class Film
 
 	public function getLists()
 	{
-		// получение списка фильмов (отсортиров.)
+		// получение списка всех фильмов 
 		if (!$_GET['getlists'] == null) {
 			$this->films = $_GET['getlists'];
 		} 
@@ -82,12 +82,7 @@ class Film
 
 		if ($result = $mysqli->query("SELECT * FROM `test`.`films` ORDER BY 'title'")) {
 		// определение числа рядов в выборке 
-   			 $row_cnt = $result->num_rows;
-   			 $row = $result->fetch_assoc();
-   			 return array (
-   			 	$this->lists = $row_cnt,
-   			 	$this->result = $row
-   			);
+   			return $result; 			 
 		}
 	}
 
@@ -131,7 +126,8 @@ class Film
 		foreach ($expEnter as $line1) {
 			$expDots = explode(": ", $line1);
 			foreach ($expDots as $line2) {
-
+				// print_r($expDots);
+				// echo "</br>";
 				 // $clean = str_replace("Title", "", $line2);
 				 // $clean = str_replace("Release Year", "", $clean);
 				 // $clean = str_replace("Format", "", $clean);
